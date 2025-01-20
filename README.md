@@ -1,1 +1,1 @@
-# DevopsCourse2024
+# devopscourse -final workshop
