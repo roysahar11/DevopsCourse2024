@@ -1,0 +1,26 @@
+services:
+  drupal:
+    ports:
+      - 80:80
+    container_name: drupal
+    image: drupal
+    depends_on:
+      - "postgresql"
+    networks:
+      - drupal
+
+  postgresql:
+    ports:
+      - 5432:5432
+    container_name: postgres
+    image: bitnami/postgresql
+    networks:
+      - drupal
+    environment:
+      - POSTGRESQL_PASSWORD=Password
+      - POSTGRES_DB=drupaldb
+      - POSTGRES_USER=drupaluser
+
+networks:
+  drupal:
+    driver: bridge
